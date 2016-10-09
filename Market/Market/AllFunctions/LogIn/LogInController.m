@@ -7,6 +7,7 @@
 //
 
 #import "LogInController.h"
+#import "RegisterController.h"
 
 @interface LogInController ()
 
@@ -50,6 +51,15 @@
 
 - (void)logIn {
     [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+}
+
+
+- (IBAction)goRegister:(id)sender {
+    [self.navigationController pushViewController:[RegisterController new] animated:YES];
+}
+
+
+- (IBAction)forgetPassword:(id)sender {
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

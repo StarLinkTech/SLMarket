@@ -78,6 +78,9 @@
                     <state key="normal" title="注册账号">
                         <color key="titleColor" red="0.24900574413517984" green="0.56418599001084169" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="goRegister:" destination="-1" eventType="touchUpInside" id="ngN-5q-aPh"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-ky-sO9">
                     <constraints>
@@ -87,6 +90,9 @@
                     <state key="normal" title="忘记密码?">
                         <color key="titleColor" red="0.24900574410000001" green="0.56418599000000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="forgetPassword:" destination="-1" eventType="touchUpInside" id="eEq-Tn-Iei"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -18,7 +18,17 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = kBlueColor;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
-    // Do any additional setup after loading the view.
+    
+    if (self.navigationController.viewControllers.firstObject != self) {
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_navigationbar_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popController)];
+        back.tintColor = [UIColor whiteColor];
+        self.navigationItem.leftBarButtonItem = back;
+    }
+
+}
+
+- (void)popController {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
