@@ -24,6 +24,8 @@
 		9863B9381DA9C59C00DD6A70 /* CustomerServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863B9371DA9C59C00DD6A70 /* CustomerServiceController.m */; };
 		9863B93B1DA9C5B200DD6A70 /* ShoppingCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863B93A1DA9C5B200DD6A70 /* ShoppingCartController.m */; };
 		9863B93E1DA9C84100DD6A70 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863B93D1DA9C84100DD6A70 /* BaseNavigationController.m */; };
+		9863B9461DA9D3B700DD6A70 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9863B9441DA9D3B600DD6A70 /* LogInController.m */; };
+		9863B9471DA9D3B700DD6A70 /* LogInController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9863B9451DA9D3B700DD6A70 /* LogInController.xib */; };
 		C6C0571E86AA6B3123CCD74D /* libPods-MarketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A00E17D97DDD0765EFDA044 /* libPods-MarketUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,9 @@
 		9863B93A1DA9C5B200DD6A70 /* ShoppingCartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartController.m; sourceTree = "<group>"; };
 		9863B93C1DA9C84100DD6A70 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		9863B93D1DA9C84100DD6A70 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		9863B9431DA9D3B600DD6A70 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
+		9863B9441DA9D3B600DD6A70 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		9863B9451DA9D3B700DD6A70 /* LogInController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInController.xib; sourceTree = "<group>"; };
 		BAF97100E82EE85A471C1CD8 /* Pods-MarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTests/Pods-MarketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C24B9A1A39C8C05A8B8CBF8D /* Pods-MarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketUITests/Pods-MarketUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D4B47EF91A587B60C0CFD8C5 /* Pods-MarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTests/Pods-MarketTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				9863B92C1DA9197F00DD6A70 /* Base */,
+				9863B93F1DA9D23900DD6A70 /* LogIn */,
 				9863B92A1DA918F100DD6A70 /* Home */,
 				9863B9281DA918F100DD6A70 /* Community */,
 				9863B9291DA918F100DD6A70 /* Go */,
@@ -274,6 +280,16 @@
 				9863B92E1DA9198000DD6A70 /* BaseViewController.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		9863B93F1DA9D23900DD6A70 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				9863B9431DA9D3B600DD6A70 /* LogInController.h */,
+				9863B9441DA9D3B600DD6A70 /* LogInController.m */,
+				9863B9451DA9D3B700DD6A70 /* LogInController.xib */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 		AAA1C3BAA1F8C8693CBA6A80 /* Pods */ = {
@@ -404,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9863B8F71DA8E03E00DD6A70 /* LaunchScreen.storyboard in Resources */,
+				9863B9471DA9D3B700DD6A70 /* LogInController.xib in Resources */,
 				9863B8F41DA8E03E00DD6A70 /* Assets.xcassets in Resources */,
 				9863B8F21DA8E03E00DD6A70 /* Main.storyboard in Resources */,
 			);
@@ -559,6 +576,7 @@
 				9863B93B1DA9C5B200DD6A70 /* ShoppingCartController.m in Sources */,
 				9863B93E1DA9C84100DD6A70 /* BaseNavigationController.m in Sources */,
 				9863B8EC1DA8E03E00DD6A70 /* AppDelegate.m in Sources */,
+				9863B9461DA9D3B700DD6A70 /* LogInController.m in Sources */,
 				9863B9211DA90BE100DD6A70 /* LLTabBarItem.m in Sources */,
 				9863B9381DA9C59C00DD6A70 /* CustomerServiceController.m in Sources */,
 				9863B9321DA9C53900DD6A70 /* HomeController.m in Sources */,

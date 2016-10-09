@@ -7,6 +7,8 @@
 //
 
 #import "HomeController.h"
+#import "LogInController.h"
+#import "BaseNavigationController.h"
 
 @interface HomeController ()
 
@@ -17,14 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    button.frame = CGRectMake(0, 0, 200, 50);
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor whiteColor];
+    button.bounds = CGRectMake(0, 0, 200, 50);
     button.center = self.view.center;
     [button addTarget:self action:@selector(logInAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 - (void)logInAction {
-    
+    BaseNavigationController *navigation = [[BaseNavigationController alloc] initWithRootViewController:[LogInController new]];
+    [self presentViewController:navigation animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
