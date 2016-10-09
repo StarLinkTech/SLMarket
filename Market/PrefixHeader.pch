@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  Market
+//
+//  Created by 左梓豪 on 16/10/8.
+//  Copyright © 2016年 左梓豪. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// 屏幕高度
+#define kAppScreenHeight         [[UIScreen mainScreen] bounds].size.height
+// 屏幕宽度
+#define kAppScreenWidth          [[UIScreen mainScreen] bounds].size.width
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

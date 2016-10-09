@@ -7,44 +7,74 @@
 //
 
 #import "AppDelegate.h"
+#import "LLTabBar.h"
+#import "HomeController.h"
+#import "CommunityController.h"
+#import "CustomerServiceController.h"
+#import "ShoppingCartController.h"
+#import "BaseNavigationController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<LLTabBarDelegate,UIActionSheetDelegate>
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    HomeController *homeViewController = [[HomeController alloc] init];
+    CommunityController *communityController = [[CommunityController alloc] init];
+    CustomerServiceController *customerServiceController = [[CustomerServiceController alloc] init];
+    ShoppingCartController *shoppingCartController = [[ShoppingCartController alloc] init];
+    
+    BaseNavigationController *homeNavigation = [[BaseNavigationController alloc] initWithRootViewController:homeViewController];
+    BaseNavigationController *communityNavigation = [[BaseNavigationController alloc] initWithRootViewController:communityController];
+    BaseNavigationController *customerServiceNavigation = [[BaseNavigationController alloc] initWithRootViewController:customerServiceController];
+    BaseNavigationController *shoppingCartNavigation = [[BaseNavigationController alloc] initWithRootViewController:shoppingCartController];
+    
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[homeNavigation, communityNavigation, customerServiceNavigation, shoppingCartNavigation];
+    
+    [[UITabBar appearance] setBackgroundImage:[[UIImage alloc] init]];
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    LLTabBar *tabBar = [[LLTabBar alloc] initWithFrame:tabBarController.tabBar.bounds];
+    tabBar.tabBarItemAttributes = @[@{kLLTabBarItemAttributeTitle : @"首页", kLLTabBarItemAttributeNormalImageName : @"home_normal", kLLTabBarItemAttributeSelectedImageName : @"home_highlight", kLLTabBarItemAttributeType : @(LLTabBarItemNormal)},
+                                    @{kLLTabBarItemAttributeTitle : @"社区", kLLTabBarItemAttributeNormalImageName : @"mycity_normal", kLLTabBarItemAttributeSelectedImageName : @"mycity_highlight", kLLTabBarItemAttributeType : @(LLTabBarItemNormal)},
+                                    @{kLLTabBarItemAttributeTitle : @"", kLLTabBarItemAttributeNormalImageName : @"post_normal", kLLTabBarItemAttributeSelectedImageName : @"post_normal", kLLTabBarItemAttributeType : @(LLTabBarItemRise)},
+                                    @{kLLTabBarItemAttributeTitle : @"客服", kLLTabBarItemAttributeNormalImageName : @"message_normal", kLLTabBarItemAttributeSelectedImageName : @"message_highlight", kLLTabBarItemAttributeType : @(LLTabBarItemNormal)},
+                                    @{kLLTabBarItemAttributeTitle : @"购物车", kLLTabBarItemAttributeNormalImageName : @"account_normal", kLLTabBarItemAttributeSelectedImageName : @"account_highlight", kLLTabBarItemAttributeType : @(LLTabBarItemNormal)}];
+    tabBar.delegate = self;
+    [tabBarController.tabBar addSubview:tabBar];
+    
+    self.window.rootViewController = tabBarController;
+    
     return YES;
 }
 
+#pragma mark - LLTabBarDelegate
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+- (void)tabBarDidSelectedRiseButton {
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UIViewController *viewController = tabBarController.selectedViewController;
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"拍照", @"从相册选取", @"淘宝一键转卖", nil];
+    [actionSheet showInView:viewController.view];
 }
 
+#pragma mark - UIActionSheetDelegate
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"buttonIndex = %ld", buttonIndex);
 }
 
 
